@@ -1,0 +1,38 @@
+! Text Color Scheme
+#include "/home/fox/.config/colors/currentScheme"
+
+! Window Color Scheme
+!*.foreground:	#c2c2b0
+!*.background:	#222222
+
+! Cursor
+*.cursorUnderline:  true
+!*.cursorBlink:      true
+*.cursorColor:  #efdfb5
+!*.cursorColor2: #
+
+! Font
+URxvt.font: mplus_f12r-euro
+URxvt.boldFont: mplus_f12r-euro 
+! Settings
+
+! No scrollbars
+URxvt.scrollBar: false
+
+! Clickable Links
+URxvt.perl-ext-common: default,matcher,clipboard
+URxvt.url-launcher: /usr/bin/google-chrome-beta
+URxvt.matcher.button: 1
+URxvt.matcher.rend.0: Uline Bold fg5
+
+! Copy paste with ctrl+shift+...
+URxvt.iso14755: False
+URxvt.keysym.Shift-Control-C: perl:clipboard:copy
+URxvt.keysym.Shift-Control-V: perl:clipboard:paste
+URxvt.clipboard.copycmd: xsel -ib
+URxvt.clipboard.pastecmd: xsel-ob
+
+!Tweaks
+URxvt.internalBorder: 25
+URxvt.depth: 32
+URxvt.letterSpace: true

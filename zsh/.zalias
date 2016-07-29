@@ -1,0 +1,35 @@
+#Aliases for zsh
+alias pacin='sudo pacman -S'
+alias pacup='sudo pacman -Syu'
+alias pacrem='sudo pacman -Rns'
+alias pacorph='sudo pacman -Rns $(pacman -Qtdq)'
+alias pacaurin='pacaur -y'
+alias pacaurup='pacaur -u'
+alias powerdown='sudo shutdown now'
+alias chrome='google-chrome-unstable'
+alias wallpaper='feh --randomize --bg-fill /shared/Wallpapers'
+alias grep='grep -n --color=auto'
+alias ls='ls --color=auto'
+alias vim='nvim'
+alias svim='sudo -E nvim'
+alias home='cd ~/'
+alias count='ls -1 | wc -l'
+alias matlab='wmname LG3D & /usr/local/bin/matlab & disown'
+alias testpl='echo "\ue0b0 \u00b1 \ue0a0 \u27a6 \u2718 \u26a1 \u2699"'
+alias viz='cava -i fifo -p /tmp/mpd.fifo -c cyan -s 550'
+alias tmux='tmux -f ~/.config/tmux'
+alias firefox='firefox-beta'
+alias define='sdcv'
+alias pipe='pipes -p 3 -t 1 -t 2 -r 9000 -R'
+alias intellij='wmname LG3D && idea.sh & disown'
+alias physerv='ssh rigel.zifkin@mail.mcgill.ca@alocer.ugrad.physics.mcgill.ca'
+alias reflect='sudo reflector --verbose --sort rate -n 5 -c "Canada" --save /etc/pacman.d/mirrorlist'
+pdf () {mupdf $1 & disown}
+alias msync='sudo adb-sync --delete /shared/Music /storage/emulated/0'
+alias relinux='sudo mkinitcpio -p linux'
+alias relist='pushd /etc/pacman.d && sudo mv mirrorlist.pacnew mirrorlist && reflect && popd'
+alias hask='pushd ~/Programming/Haskell/src && ghci && popd'
+
+#Global Aliases
+alias -g haskell=/home/fox/Programming/Haskell/src
+

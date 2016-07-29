@@ -1,0 +1,50 @@
+#Control-a as prefix
+unbind C-b
+set-option -g prefix C-a
+bind-key C-a send-prefix
+
+#Reload config file
+bind r source-file ~/.config/tmux \; display "Reloaded!"
+
+#Shell
+set -g default-command /bin/zsh
+set -g default-shell /bin/zsh
+
+#Start with window/pane 1
+set -g base-index 1
+set -g pane-base-index 1
+
+#Long History
+set -g history-limit 4096
+
+#Vi Mode
+setw -g mode-keys vi
+set -g status-keys vi
+
+# Splitting
+unbind %
+bind f split-window -h
+unbind '"'
+bind v split-window -v
+
+# Pane Control
+set -g mouse on 
+set -g pane-border-fg blue
+set -g pane-active-border-fg brightred
+
+# Statusbar
+bind-key b set-option status
+set -g status-justify left
+set -g status-bg default
+set -g status-fg default 
+set -g status-interval 2
+
+#Colors
+setw -g window-status-format "#[bg=default]#[fg=colour8]  #W  "
+setw -g window-status-current-format "#[bg=default]#[fg=colour5]  #W  "
+setw -g window-status-current-attr dim
+set -g status-position bottom 
+set -g status-justify centre 
+set -g status-left ' '
+set -g status-right ' '
+set -g clock-mode-colour blue
