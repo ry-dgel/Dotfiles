@@ -1,9 +1,9 @@
 let g:netrw_dirhistmax  =10
 let g:netrw_dirhist_cnt =7
-let g:netrw_dirhist_1='/etc/mkinitcpio.d'
-let g:netrw_dirhist_2='/home/fox/.config/bspwm'
-let g:netrw_dirhist_3='/home/fox/.config'
-let g:netrw_dirhist_4='/home/fox/.config/colors'
-let g:netrw_dirhist_5='/home/fox/Scripts'
-let g:netrw_dirhist_6='/etc/fonts'
-let g:netrw_dirhist_7='/etc/spectrwm'
+let g:netrw_dirhist_1='/home/fox/.config/cava'
+let g:netrw_dirhist_2='/home/fox/.config/cmus'
+let g:netrw_dirhist_3='/home/fox/.config/cava'
+let g:netrw_dirhist_4='/home/fox/Scripts'
+let g:netrw_dirhist_5='/home/fox/.config/cmus'
+let g:netrw_dirhist_6='/home/fox/.config'
+let g:netrw_dirhist_7='/home/fox/.config/bspwm'

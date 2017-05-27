@@ -69,10 +69,7 @@ man() {
 	  LESS_TERMCAP_so=$(printf "\e[1;44;33m") \
 	  LESS_TERMCAP_ue=$(printf "\e[0m") \
 	  LESS_TERMCAP_us=$(printf "\e[1;32m") \
-	  PAGER=/usr/bin/less \
-	  _NROFF_U=1 \
-	  PATH=${HOME}/bin:${PATH} \
-	  			   man "$@"
+      man "$@"
 }
 
 
@@ -96,3 +93,7 @@ eval $(dircolors -b)
 #Base16 colours
 #BASE16_SHELL="$HOME/.colors/base16/base16-ocean.dark.sh"
 #[[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
+
+# Search with up arrows
+bindkey "^[[A" history-beginning-search-backward
+bindkey "^[[B" history-beginning-search-forward

@@ -71,9 +71,9 @@ set wrap
 set autoindent
 
 "Cursor Highlight
-:hi CursorLine  cterm=NONE ctermbg=0 ctermfg=NONE guibg=NONE guifg=NONE
-:hi CursorColumn  cterm=NONE ctermbg=0 ctermfg=NONE guibg=NONE guifg=NONE
-:nnoremap <Leader>r :set cursorline! cursorcolumn!<CR>
+hi CursorLine  cterm=NONE ctermbg=0 ctermfg=NONE guibg=NONE guifg=NONE
+hi CursorColumn  cterm=NONE ctermbg=0 ctermfg=NONE guibg=NONE guifg=NONE
+nnoremap <Leader>r :set cursorline! cursorcolumn!<CR>
 
 "Remove all trailing whitespace by pressing F5
 nnoremap <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
@@ -82,22 +82,20 @@ nnoremap <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
 call plug#begin('~/.config/nvim/plugged')
 
 Plug 'scrooloose/nerdtree', {'on':  'NERDTreeToggle' }
-Plug 'scrooloose/syntastic'
 Plug 'tpope/vim-surround'
 Plug 'bling/vim-airline'
 Plug 'benekastah/neomake'
 Plug 'Valloric/YouCompleteMe', {'do': './install.py'}
-Plug 'jiangmiao/auto-pairs'
-Plug 'chriskempson/base16-vim'
-Plug 'lervag/vimtex'
+Plug 'vim-scripts/auto-pairs-gentle'
 Plug 'morhetz/gruvbox'
-Plug 'chriskempson/vim-tomorrow-theme'
-Plug 'romainl/Apprentice'
-Plug 'jpo/vim-railscasts-theme'
-Plug 'ajh17/Spacegray.vim'
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
-
+Plug 'godlygeek/tabular'
+Plug 'dag/vim2hs'
+Plug 'eagletmt/neco-ghc'
+Plug 'ndmitchell/ghcid', {'rtp': 'plugins/nvim'}
+Plug 'donRaphaco/neotex', { 'for': 'tex' }
+Plug 'JuliaEditorSupport/julia-vim'
 call plug#end()
 
 "airline
@@ -111,21 +109,6 @@ let g:airline#extensions#tabline#left_alt_sep = '█▓'
 let g:airline_left_sep = '█▓░'
 let g:airline_right_sep = '░▓█'
 
-"syntastic
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-
-"vimtex
-let g:vimtex_latxmk_progname = 'nvr'
-let g:tex_flavor = 'latex'
-let g:vimtex_view_method = 'mupdf'
-
 "nerdtree
 "autocmd vimenter * if !argc() | NERDTree | endif
 map <C-t> :NERDTreeToggle<CR>
@@ -134,8 +117,7 @@ map <C-t> :NERDTreeToggle<CR>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
 "YouCompleteMe
-let g:ycm_show_diagnostics_ui = 0 "Disable diagnostics, to allow syntastic
-
+"
 "Colors
 let g:gruvbox_termcolors=16
 set background=dark
@@ -155,3 +137,23 @@ function! AdaptColorscheme()
 endfunction
 
 autocmd VimEnter * call AdaptColorscheme()
+
+" Allow saving of files as sudo when I forgot to start vim using sudo.
+cmap w!! w !sudo tee > /dev/null %
+
+" Fix ghcid command for file not named main
+let g:ghcid_command = "ghcid " . expand('%:p')
+" Stop YCM from asking for permission
+let g:ycm_confirm_extra_conf = 0
+" Auto pairs gentle
+let g:AutoPairsUseInsertedCount = 1
+
+" Hide top bar
+set showtabline=0
+
+" Disable comment completion
+autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+
+" Julia
+:let g:latex_to_unicode_auto = 1
+

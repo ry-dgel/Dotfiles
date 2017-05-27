@@ -12,8 +12,8 @@
 !*.cursorColor2: #
 
 ! Font
-URxvt.font: mplus_f12r-euro
-URxvt.boldFont: mplus_f12r-euro 
+URxvt.font: -*-terminus-*-*-*-*-12-*-*-*-*-*-*-u
+URxvt.boldFont: -*-terminus-*-*-*-*-12-*-*-*-*-*-*-u
 ! Settings
 
 ! No scrollbars
@@ -35,4 +35,5 @@ URxvt.clipboard.pastecmd: xsel-ob
 !Tweaks
 URxvt.internalBorder: 25
 URxvt.depth: 32
-URxvt.letterSpace: true
+!URxvt.letterSpace: true
+URxvt.imLocale: en_US.UTF-8

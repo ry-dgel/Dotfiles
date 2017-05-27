@@ -18,8 +18,9 @@ visualizer_look = •▋
 visualizer_color = blue,cyan,magenta,green,yellow,red
 
 #Progress Bar
-progressbar_look = "─╼·"
+progressbar_look = "─╼─"
 progressbar_boldness = no
+progressbar_elapsed_color = "blue"
 
 #Lyrics
 follow_now_playing_lyrics = yes
@@ -48,9 +49,12 @@ user_interface = "alternative"
 titles_visibility = no
 alternative_ui_separator_color = "blue"
 window_border_color = "blue"
-now_playing_prefix = "$b$5❱$3❱$7❱ "
+now_playing_prefix = "$b$5>$3>$7>"
 now_playing_suffix = "$/b"
 song_window_title_format = "ncmpcpp"
+
+#Panel Update
+execute_on_song_change = "pkill -USR1 panel"
 
 # TOOOO DOOOOO Song Listings
 ##### song format #####
